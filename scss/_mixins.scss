@@ -1,0 +1,29 @@
+@import "fonts";
+@import "variables";
+
+@mixin backgroundIntro {
+  background: linear-gradient(180deg, #12132b 0%, #07071e 100%);
+}
+
+@mixin fontBannerTitle {
+  font-family: "FormaDJRBanner-Regular";
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 67px;
+}
+
+@mixin fontBanner {
+  font-family: "FormaDJRBanner-Regular";
+}
+
+@mixin fontFormaText {
+  font-family: "FormaDJRText-Regular";
+}
+
+@mixin fontHelvic {
+  font-family: "HelveticaNowDisplay-Regular";
+}
+
+@mixin fontScreamer {
+  font-family: "FKScreamerLegacyTrial"; //TODO: Не правильный шрифт, должен быть прямой
+}
