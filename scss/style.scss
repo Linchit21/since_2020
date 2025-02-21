@@ -12,6 +12,8 @@
   @include backgroundIntro;
   color: $secondary;
   height: 1327px; //TODO: Сделал для вставки абсолютных фонов
+  position: relative;
+  overflow: hidden;
 
   &__side {
     width: 481px;
@@ -127,26 +129,100 @@
     font-size: 18px;
     line-height: 23px;
     transition: transform 0.3s ease;
-
-    &:hover {
-      z-index: 1;
-      transform: scale(1.1);
-    }
+    z-index: 3;
+    position: absolute;
 
     &-1 {
-      position: absolute;
       top: 391px;
       left: calc(509px - 481px);
+      animation: randomFloat 100s infinite ease-in-out alternate;
+
+      &:hover {
+        animation-play-state: paused;
+        z-index: 4;
+      }
     }
 
     &-2 {
-      position: absolute;
+      animation: asymmetricFloat 100s infinite ease-in-out alternate;
       top: 626px;
       left: calc(760px - 481px);
+
+      &:hover {
+        animation-play-state: paused;
+      }
     }
 
     span {
       color: $secondary;
+    }
+
+    @keyframes randomFloat {
+      0% {
+        transform: translate(0, 0);
+      }
+      10% {
+        transform: translate(100px, -80px);
+      }
+      20% {
+        transform: translate(-90px, 60px);
+      }
+      30% {
+        transform: translate(70px, 120px);
+      }
+      40% {
+        transform: translate(-100px, -50px);
+      }
+      50% {
+        transform: translate(100px, 80px);
+      }
+      60% {
+        transform: translate(-60px, -90px);
+      }
+      70% {
+        transform: translate(100px, 40px);
+      }
+      80% {
+        transform: translate(-100px, 100px);
+      }
+      90% {
+        transform: translate(50px, -120px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes asymmetricFloat {
+      0% {
+        transform: translate(0, 0);
+      }
+      12% {
+        transform: translate(100px, -70px) rotate(5deg);
+      }
+      25% {
+        transform: translate(-100px, 90px) scale(1.1);
+      }
+      37% {
+        // transform: translate(50px, 150px) rotate(-3deg);
+        transform: translate(100px, 60px) rotate(2deg);
+      }
+      49% {
+        transform: translate(-100px, -40px) scale(0.9);
+      }
+      61% {
+        // transform: translate(100px, 60px) rotate(2deg);
+        transform: translate(50px, 150px) rotate(-3deg);
+      }
+      74% {
+        transform: translate(-80px, -100px) scale(1.05);
+      }
+      86% {
+        transform: translate(100px, 30px) rotate(-4deg);
+      }
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
     }
   }
 
@@ -164,13 +240,15 @@
   }
 
   &__background {
-    //TODO: фон?????
-    width: 446px;
-    height: 1078px;
-    top: 226px;
-    left: 1244px;
-    rotate: -36.9 deg;
-    background-image: url(/img/intro.png);
+    position: absolute;
+    right: -182px;
+    bottom: -78px;
+    transform: rotate(5deg);
+    transform-origin: right bottom;
+    background-image: url(/img/background.png);
+    z-index: 1;
+    width: 950px;
+    height: 1150px;
   }
 }
 
@@ -541,6 +619,8 @@
   @include backgroundIntro;
   color: $secondary;
   height: 1327px; //TODO: Сделал для вставки абсолютных фонов
+  overflow: hidden;
+  position: relative;
 
   &__side {
     width: 481px;
@@ -596,9 +676,22 @@
     color: $primary;
   }
 
+  &__background {
+    position: absolute;
+    right: -182px;
+    bottom: -78px;
+    transform: rotate(5deg);
+    transform-origin: right bottom;
+    background-image: url(/img/background.png);
+    z-index: 1;
+    width: 950px;
+    height: 1150px;
+  }
+
   &__links {
     display: flex;
     gap: 10px;
+    position: relative;
 
     &-item {
       width: 296px;
@@ -615,6 +708,7 @@
       cursor: pointer;
       text-decoration: none;
       transition: transform 0.3s ease;
+      z-index: 2;
 
       &:hover {
         transform: scale(1.1);
